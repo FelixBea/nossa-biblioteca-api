@@ -33,7 +33,7 @@ $router->group(['prefix' => '/genres'], function () use ($router) {
   $router->delete('/{id}', 'GenresController@delete');
 });
 
-$router->group(['prefix' => '/authors'], function () use ($router) {
+$router->group(['prefix' => '/autores'], function () use ($router) {
   $router->get('/', 'AuthorsController@list');
   $router->get('/{id}', 'AuthorsController@show');
   $router->post('/', 'AuthorsController@create');

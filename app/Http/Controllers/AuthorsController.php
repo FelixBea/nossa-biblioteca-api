@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+
 class AuthorsController extends Controller {
 
   public function list() {
-    return response()->json();
+    $authors = DB::table('authors')->get();
+    return response()->json($authors);
   }
 
   public function show($id) {

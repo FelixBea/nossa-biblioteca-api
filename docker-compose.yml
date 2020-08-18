@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  nossa-biblioteca-db:
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=secret
+    image: postgres
+    volumes:
+      - ./database/data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
