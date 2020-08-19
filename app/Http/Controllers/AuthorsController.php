@@ -17,6 +17,12 @@ class AuthorsController extends Controller {
   }
 
   public function create(Request $request) {
+    $this->validate($request, [
+      'name' => 'required',
+      'birth' => 'required|date',
+      'country' => 'required',
+      'gender' => 'required'
+    ]);
     return response()->json();
   }
 
