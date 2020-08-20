@@ -19,7 +19,7 @@ class AuthorsController extends Controller {
   public function __construct()
   {
     $this->validateArray = [
-      'name' => 'required|unique:authors',
+      'name' => 'required|unique',
       'birth' => 'required|date',
       'country' => 'required',
       'gender' => ['required', Rule::in(['Masculino', 'Feminino', 'Não-binário'])]
