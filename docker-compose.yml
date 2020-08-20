@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  nossa-biblioteca-db:
+  db:
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=secret
