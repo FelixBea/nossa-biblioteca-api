@@ -41,7 +41,7 @@ class BooksController extends Controller {
     $bookId = DB::table('books')->insertGetId([
       'title' => $request->input('title'),
       'year' => $request->input('year'),
-      'author' => $request->input('author')
+      'author_id' => $request->input('author')
     ]);
 
     return response()->json(['id' => $bookId]);
