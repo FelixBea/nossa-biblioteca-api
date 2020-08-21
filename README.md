@@ -17,10 +17,10 @@ Antes de iniciar a instalação, é necessário instalar os seguintes itens:
 Instruções de instalação:
 1- Clone o projeto para um repositório local
 
-```git clone git@github.com:FelixBea/nossa-biblioteca-api.git```
+```git clone https://github.com/FelixBea/nossa-biblioteca-api.git```
 
 2- Na pasta do projeto, instale as dependencias com o Composer. Certifique-se de
-  que ele está no seu PATH para que o comando seja reconhecido. 
+  que ele está no seu PATH para que o comando seja reconhecido.
 
 ```composer install```
 
@@ -28,11 +28,19 @@ Instruções de instalação:
 
 ```docker-compose up -d```
 
-4- Execute as migrations para criar as tabelas do projeto
+4- Crie um arquivo .env no diretório raiz do projeto copiando o conteudo do arquivo .env.example.
+   Substitua as seguintes variáveis no .env e salve:
+   ```DB_CONNECTION=pgsql
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_DATABASE=postgres
+   DB_USERNAME=postgres```
+
+5- Execute as migrations para criar as tabelas do projeto
 
 ```php artisan migrate```
 
-5- Caso necessário, faça os inserts iniciais no banco de dados utilizando um
+6- Caso necessário, faça os inserts iniciais no banco de dados utilizando um
    client de PostgreSQL (pgAdmin) com as seguintes configurações. Os inserts
    estão na pasta do projeto em database/data.sql.
    - Host: localhost
@@ -52,6 +60,6 @@ Instruções de instalação:
    terminam em ";". Após terminar, insira ```\q``` para sair do psql e ```exit```
    para sair do container.
 
-6- Inicie a aplicação, que estará disponível no localhost na porta 8000:
+7- Inicie a aplicação, que estará disponível no localhost na porta 8000:
 
   ``` php -S localhost:8000 -t public```
