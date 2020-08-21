@@ -8,6 +8,9 @@ Antes de iniciar a instalação, é necessário instalar os seguintes itens:
     -OpenSSL PHP Extension
     -PDO PHP Extension
     -Mbstring PHP Extension
+    -Mbstring PHP Extension
+    -pdo_pgsql PHP Extension
+    -pgsql PHP Extension
 - Docker
 - Composer
 
@@ -16,7 +19,8 @@ Instruções de instalação:
 
 ```git clone git@github.com:FelixBea/nossa-biblioteca-api.git```
 
-2- Na pasta do projeto, instale as dependencias
+2- Na pasta do projeto, instale as dependencias com o Composer. Certifique-se de
+  que ele está no seu PATH para que o comando seja reconhecido. 
 
 ```composer install```
 

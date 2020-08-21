@@ -13,38 +13,36 @@
 |
 */
 
-$router->group(['prefix' => 'api_v1'], function () use ($router) {
-  return $router->app->version();
-});
+$router->group(['prefix' => '/api_v1'], function () use ($router) {
+  $router->group(['prefix' => '/livros'], function () use ($router) {
+    $router->get('/', 'BooksController@list');
+    $router->get('/{id}', 'BooksController@show');
+    $router->post('/', 'BooksController@create');
+    $router->put('/{id}', 'BooksController@edit');
+    $router->delete('/{id}', 'BooksController@delete');
+  });
 
-$router->group(['prefix' => '/books'], function () use ($router) {
-  $router->get('/', 'BooksController@list');
-  $router->get('/{id}', 'BooksController@show');
-  $router->post('/', 'BooksController@create');
-  $router->put('/{id}', 'BooksController@edit');
-  $router->delete('/{id}', 'BooksController@delete');
-});
+  $router->group(['prefix' => '/generos'], function () use ($router) {
+    $router->get('/', 'GenresController@list');
+    $router->get('/{id}', 'GenresController@show');
+    $router->post('/', 'GenresController@create');
+    $router->put('/{id}', 'GenresController@edit');
+    $router->delete('/{id}', 'GenresController@delete');
+  });
 
-$router->group(['prefix' => '/genres'], function () use ($router) {
-  $router->get('/', 'GenresController@list');
-  $router->get('/{id}', 'GenresController@show');
-  $router->post('/', 'GenresController@create');
-  $router->put('/{id}', 'GenresController@edit');
-  $router->delete('/{id}', 'GenresController@delete');
-});
+  $router->group(['prefix' => '/autores'], function () use ($router) {
+    $router->get('/', 'AuthorsController@list');
+    $router->get('/{id}', 'AuthorsController@show');
+    $router->post('/', 'AuthorsController@create');
+    $router->put('/{id}', 'AuthorsController@edit');
+    $router->delete('/{id}', 'AuthorsController@delete');
+  });
 
-$router->group(['prefix' => '/autores'], function () use ($router) {
-  $router->get('/', 'AuthorsController@list');
-  $router->get('/{id}', 'AuthorsController@show');
-  $router->post('/', 'AuthorsController@create');
-  $router->put('/{id}', 'AuthorsController@edit');
-  $router->delete('/{id}', 'AuthorsController@delete');
-});
-
-$router->group(['prefix' => '/publishing-houses'], function () use ($router) {
-  $router->get('/', 'PublishingHousesController@list');
-  $router->get('/{id}', 'PublishingHousesController@show');
-  $router->post('/', 'PublishingHousesController@create');
-  $router->put('/{id}', 'PublishingHousesController@edit');
-  $router->delete('/{id}', 'PublishingHousesController@delete');
+  $router->group(['prefix' => '/editoras'], function () use ($router) {
+    $router->get('/', 'PublishingHousesController@list');
+    $router->get('/{id}', 'PublishingHousesController@show');
+    $router->post('/', 'PublishingHousesController@create');
+    $router->put('/{id}', 'PublishingHousesController@edit');
+    $router->delete('/{id}', 'PublishingHousesController@delete');
+  });
 });
